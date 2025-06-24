@@ -123,7 +123,7 @@ const TestimonialsSection = () => {
             <div className="flex items-center justify-center mb-6">
               <div className="flex items-center bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full px-4 py-2 border border-primary/30">
                 <Video className="h-5 w-5 text-primary mr-2" />
-                <span className="text-primary font-bold text-sm sm:text-base">TÉMOIGNAGES VIDÉO - LECTURE AUTOMATIQUE</span>
+                <span className="text-primary font-bold text-sm sm:text-base">TÉMOIGNAGES VIDÉO </span>
               </div>
             </div>
             
