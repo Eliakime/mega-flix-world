@@ -57,13 +57,13 @@ const FaqSection = () => {
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
         >
-          <h2 className="cinema-font text-6xl md:text-7xl lg:text-8xl font-black mb-8 text-shadow">
-            <span className="text-white">Questions</span>
-            <br />
-            <span className="gradient-primary bg-clip-text text-transparent neon-glow">
-              fréquentes
-            </span>
-          </h2>
+          <h2 className="cinema-font text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl font-black mb-4 sm:mb-6 md:mb-8 text-shadow text-center sm:text-left">
+  <span className="text-white">Questions</span>
+  <br />
+  <span className="gradient-primary bg-clip-text text-transparent neon-glow">
+    fréquentes
+  </span>
+</h2>
           <p className="text-2xl md:text-3xl text-gray-200 max-w-2xl mx-auto text-shadow">
             Toutes les réponses aux questions que vous vous posez
           </p>
