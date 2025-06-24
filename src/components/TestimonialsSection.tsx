@@ -101,7 +101,6 @@ const TestimonialsSection = () => {
           </p>
         </motion.div>
 
-        {/* Témoignage principal avec navigation responsive */}
         <motion.div 
           className="max-w-6xl mx-auto mb-12 sm:mb-16"
           key={currentTestimonial}
