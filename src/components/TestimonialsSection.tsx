@@ -22,7 +22,7 @@ const testimonials = [
     type: "video",
     avatar: "👩🏾‍🏫",
     videoThumbnail: "/images/testimonials/fatou-thumb.jpg",
-    videoUrl: "/videos/2.mov"
+    videoUrl: "/videos/2.MP4"
   },
   {
     name: "Ibrahim Koné",
@@ -439,7 +439,7 @@ const TestimonialsSection = () => {
                 <div className="w-10 h-10 sm:w-12 sm:h-12 lg:w-16 lg:h-16 bg-primary rounded-full border-2 sm:border-4 border-white flex items-center justify-center text-xs sm:text-base lg:text-xl font-black text-black neon-glow">8K+</div>
               </div>
             </div>
-            
+          
             {/* Titre responsive */}
             <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-black text-white mb-4 sm:mb-6 text-shadow cinema-font">
               Rejoignez plus de 8,000 utilisateurs satisfaits
