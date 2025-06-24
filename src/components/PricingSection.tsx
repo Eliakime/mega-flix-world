@@ -212,8 +212,8 @@ const PricingSection = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 lg:gap-6 mb-8 sm:mb-10">
                   {[
                     { icon: Shield, text: "Paiement sécurisé", color: "green" },
-                    { icon: Clock, text: "Installation 5min", color: "blue" },
-                    { icon: Smartphone, text: "Multi-appareils", color: "purple" }
+                    { icon: Clock, text: "Installation 5min", color: "red" },
+                    { icon: Smartphone, text: "Multi-appareils", color: "white" }
                   ].map((item, index) => (
                     <motion.div
                       key={index}
@@ -263,16 +263,18 @@ const PricingSection = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <Button 
-                    size="lg"
-                    className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-black font-bold px-6 sm:px-12 lg:px-16 py-4 sm:py-6 lg:py-8 text-base sm:text-xl lg:text-2xl rounded-xl sm:rounded-2xl transition-all duration-300 shadow-2xl w-full sm:w-auto"
-                  >
-                    <span className="flex items-center space-x-2">
-                      <span>🚀</span>
-                      <span className="hidden sm:inline">Obtenir Cine + maintenant - 5,000 FCFA</span>
-                      <span className="sm:hidden">Obtenir Cine + 5,000 FCFA</span>
-                    </span>
-                  </Button>
+                  <a href="https://ywsoqfbs.mychariow.com/prd_3ny4tw" target="_blank" rel="noopener noreferrer">
+  <Button 
+    size="lg"
+    className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-black font-bold px-6 sm:px-12 lg:px-16 py-4 sm:py-6 lg:py-8 text-base sm:text-xl lg:text-2xl rounded-xl sm:rounded-2xl transition-all duration-300 shadow-2xl w-full sm:w-auto"
+  >
+    <span className="flex items-center space-x-2">
+      <span>🚀</span>
+      <span className="hidden sm:inline">Obtenir Cine + maintenant - 5,000 FCFA</span>
+      <span className="sm:hidden">Obtenir Cine + 5,000 FCFA</span>
+    </span>
+  </Button>
+</a>
                 </motion.div>
                 
                 <div className="text-gray-400 text-sm sm:text-base lg:text-lg mt-4 sm:mt-6 space-y-2">

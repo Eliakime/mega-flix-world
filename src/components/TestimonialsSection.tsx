@@ -10,9 +10,8 @@ const testimonials = [
     rating: 5,
     text: "Cine + a révolutionné mon quotidien ! Fini les 35,000 FCFA par mois d'abonnements. Mes enfants regardent leurs dessins animés, ma femme suit ses novelas et moi je ne rate aucun match du PSG. Tout ça pour 5000 FCFA une seule fois !",
     type: "video",
-    avatar: "👨🏾‍💼",
-    videoThumbnail: "/images/testimonials/amadou-thumb.jpg",
-    videoUrl: "/videos/testimonials/amadou-testimonial.mp4"
+    videoThumbnail: "/images/1.jpg",
+    videoUrl: "/videos/1.mov"
   },
   {
     name: "Fatou Traoré",
@@ -23,7 +22,7 @@ const testimonials = [
     type: "video",
     avatar: "👩🏾‍🏫",
     videoThumbnail: "/images/testimonials/fatou-thumb.jpg",
-    videoUrl: "/videos/testimonials/fatou-testimonial.mp4"
+    videoUrl: "/videos/2.mov"
   },
   {
     name: "Ibrahim Koné",
@@ -33,17 +32,6 @@ const testimonials = [
     text: "En tant qu'ingénieur, j'étais sceptique. Mais après 1 an d'utilisation, je peux confirmer : la qualité est au rendez-vous, l'app est stable et les mises à jour sont automatiques. Excellent investissement !",
     type: "text",
     avatar: "👨🏾‍💻"
-  },
-  {
-    name: "Aïsha Ouattara",
-    location: "Ouagadougou, Burkina Faso",
-    profession: "Commerçante",
-    rating: 5,
-    text: "Mes trois enfants ont des goûts différents : mangas pour l'aîné, dessins animés pour le cadet, et films pour la cadette. Avec Cine +, tout le monde est satisfait ! Plus de disputes pour la télécommande 😄",
-    type: "video",
-    avatar: "👩🏾‍💼",
-    videoThumbnail: "/images/testimonials/aisha-thumb.jpg",
-    videoUrl: "/videos/testimonials/aisha-testimonial.mp4"
   },
   {
     name: "Moussa Camara",
@@ -206,40 +194,40 @@ const TestimonialsSection = () => {
               whileHover={{ scale: index === currentTestimonial ? 1.05 : 1.02, y: -5 }}
             >
               {/* Section média responsive */}
-              {testimonial.type === 'video' && testimonial.videoThumbnail ? (
-                <div className="relative h-32 sm:h-40 lg:h-48 overflow-hidden">
-                  {playingVideo === testimonial.videoUrl ? (
-                    <video 
-                      className="w-full h-full object-cover"
-                      controls
-                      autoPlay
-                      src={testimonial.videoUrl}
-                      onError={() => {
-                        // Fallback si la vidéo ne charge pas
-                        setPlayingVideo(null);
-                      }}
-                    />
-                  ) : (
-                    <>
-                      {/* Placeholder image avec avatar si l'image locale n'existe pas */}
-                      <div className="w-full h-full bg-gradient-to-br from-gray-700/50 to-gray-800/50 backdrop-blur-sm flex items-center justify-center">
-                        <div className="text-4xl sm:text-5xl lg:text-6xl">{testimonial.avatar}</div>
-                      </div>
-                      <div 
-                        className="video-testimonial absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleVideoPlay(testimonial.videoUrl || '');
-                        }}
-                      >
-                        <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors neon-glow">
-                          <Play className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-black ml-1" />
-                        </div>
-                      </div>
-                    </>
-                  )}
-                </div>
-              ) : (
+            {testimonial.type === 'video' && testimonial.videoThumbnail ? (
+  <div className="relative h-32 sm:h-40 lg:h-48 overflow-hidden">
+    {playingVideo === testimonial.videoUrl ? (
+      <video 
+        className="w-full h-full object-cover"
+        controls
+        autoPlay
+        src={testimonial.videoUrl}
+        onError={() => {
+          setPlayingVideo(null);
+        }}
+      />
+    ) : (
+      <>
+        <img
+          src={testimonial.videoThumbnail}
+          alt="Aperçu vidéo"
+          className="w-full h-full object-cover"
+        />
+        <div 
+          className="video-testimonial absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm cursor-pointer"
+          onClick={(e) => {
+            e.stopPropagation();
+            handleVideoPlay(testimonial.videoUrl || '');
+          }}
+        >
+          <div className="w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-colors neon-glow">
+            <Play className="h-6 w-6 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-black ml-1" />
+          </div>
+        </div>
+      </>
+    )}
+  </div>
+)  : (
                 <div className="h-32 sm:h-40 lg:h-48 bg-gradient-to-br from-gray-700/50 to-gray-800/50 backdrop-blur-sm flex items-center justify-center">
                   <div className="text-4xl sm:text-5xl lg:text-6xl">{testimonial.avatar}</div>
                 </div>

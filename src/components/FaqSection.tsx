@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 const faqs = [
   {
-    question: "Comment installer le pack IPTV ?",
+    question: "Comment installer Cine + ?",
     answer: "L'installation est très simple ! Après votre achat, vous recevrez un lien de téléchargement et un guide pas-à-pas. Il suffit d'installer l'application, d'entrer votre code d'activation, et vous êtes prêt ! Tout le processus prend moins de 10 minutes."
   },
   {
@@ -132,13 +132,13 @@ const FaqSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a 
-                href="https://wa.me/+221123456789" 
+                href="https://wa.me/+2210168943491" 
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-lg"
               >
                 💬 WhatsApp Support
               </a>
               <a 
-                href="tel:+221123456789" 
+                href="tel:+2210168943491" 
                 className="bg-primary hover:bg-primary/90 text-black px-8 py-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-lg neon-glow"
               >
                 📞 Appel gratuit
