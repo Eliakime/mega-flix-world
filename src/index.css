@@ -101,10 +101,10 @@
 
   .neon-glow {
     box-shadow: 
-      0 0 5px theme('colors.primary'),
-      0 0 10px theme('colors.primary'),
-      0 0 15px theme('colors.primary'),
-      0 0 20px theme('colors.primary');
+      0 0 5px #FFD600,
+      0 0 10px #FFD600,
+      0 0 15px #FFD600,
+      0 0 20px #FFD600;
   }
 
   .floating-particles {
@@ -196,16 +196,16 @@
   @keyframes neon-pulse {
     0%, 100% { 
       box-shadow: 
-        0 0 5px theme('colors.primary'),
-        0 0 10px theme('colors.primary'),
-        0 0 15px theme('colors.primary');
+        0 0 5px #FFD600,
+        0 0 10px #FFD600,
+        0 0 15px #FFD600;
     }
     50% { 
       box-shadow: 
-        0 0 10px theme('colors.primary'),
-        0 0 20px theme('colors.primary'),
-        0 0 30px theme('colors.primary'),
-        0 0 40px theme('colors.primary');
+        0 0 10px #FFD600,
+        0 0 20px #FFD600,
+        0 0 30px #FFD600,
+        0 0 40px #FFD600;
     }
   }
 }
