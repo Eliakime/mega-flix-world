@@ -55,22 +55,20 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
-  const [playingVideo, setPlayingVideo] = useState<string | null>(null);
-  const [autoplayStarted, setAutoplayStarted] = useState(false);
+  const [allVideosPlaying, setAllVideosPlaying] = useState(false);
 
-  // Auto-play première vidéo au chargement
+  // Démarrage automatique de toutes les vidéos dès l'arrivée sur le site
   useEffect(() => {
-    if (!autoplayStarted && testimonials[0].type === 'video') {
-      const timer = setTimeout(() => {
-        setPlayingVideo(testimonials[0].videoUrl || '');
-        setAutoplayStarted(true);
-      }, 1000); // Démarre après 1 seconde
-      return () => clearTimeout(timer);
-    }
-  }, [autoplayStarted]);
+    const timer = setTimeout(() => {
+      setAllVideosPlaying(true);
+    }, 500); // Démarre après 0.5 seconde pour permettre le chargement de la page
+    
+    return () => clearTimeout(timer);
+  }, []);
 
-  const handleVideoPlay = (videoUrl: string) => {
-    setPlayingVideo(videoUrl);
+  const toggleVideoPlay = (videoUrl: string) => {
+    // Cette fonction peut être utilisée pour contrôler individuellement les vidéos si nécessaire
+    setAllVideosPlaying(!allVideosPlaying);
   };
 
   const nextTestimonial = () => {
@@ -125,42 +123,38 @@ const TestimonialsSection = () => {
             <div className="flex items-center justify-center mb-6">
               <div className="flex items-center bg-gradient-to-r from-primary/20 to-secondary/20 rounded-full px-4 py-2 border border-primary/30">
                 <Video className="h-5 w-5 text-primary mr-2" />
-                <span className="text-primary font-bold text-sm sm:text-base">TÉMOIGNAGES VIDÉO</span>
+                <span className="text-primary font-bold text-sm sm:text-base">TÉMOIGNAGES VIDÉO - LECTURE AUTOMATIQUE</span>
               </div>
             </div>
             
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-              {/* Première vidéo - Grande taille */}
+              {/* Première vidéo - Autoplay */}
               <div className="relative">
                 <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-primary/30">
                   <div className="relative h-64 sm:h-80 lg:h-96">
-                    {playingVideo === testimonials[0].videoUrl ? (
+                    {allVideosPlaying ? (
                       <video 
                         className="w-full h-full object-cover rounded-2xl"
                         controls
                         autoPlay
                         muted
+                        loop
+                        playsInline
                         src={testimonials[0].videoUrl}
-                        onError={() => setPlayingVideo(null)}
+                        onError={() => console.log('Erreur vidéo 1')}
                       />
                     ) : (
                       <>
                         <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                           <div className="text-6xl sm:text-8xl">🎬</div>
                         </div>
-                        <div 
-                          className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm cursor-pointer group"
-                          onClick={() => handleVideoPlay(testimonials[0].videoUrl || '')}
-                        >
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm">
                           <div className="relative">
-                            <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-all duration-300 neon-glow group-hover:scale-110">
-                              <Play className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-black ml-1" />
+                            <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-primary rounded-full flex items-center justify-center animate-pulse">
+                              <div className="text-black font-bold text-sm">LOADING</div>
                             </div>
                             <div className="absolute -inset-2 bg-primary/30 rounded-full animate-ping"></div>
                           </div>
-                        </div>
-                        <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-full text-sm font-bold animate-pulse">
-                          🔴 LIVE
                         </div>
                       </>
                     )}
@@ -168,12 +162,18 @@ const TestimonialsSection = () => {
                   
                   {/* Info de la première vidéo */}
                   <div className="p-4 sm:p-6 bg-black/80">
-                    <div className="flex items-center mb-3">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex">
                         {[...Array(testimonials[0].rating)].map((_, i) => (
                           <Star key={i} className="h-5 w-5 text-primary fill-current mr-1" />
                         ))}
                       </div>
+                      {allVideosPlaying && (
+                        <div className="flex items-center bg-red-600/20 border border-red-500 rounded-full px-3 py-1">
+                          <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></div>
+                          <span className="text-red-400 text-xs font-bold">EN DIRECT</span>
+                        </div>
+                      )}
                     </div>
                     <h3 className="font-black text-white text-lg sm:text-xl mb-2">
                       {testimonials[0].name}
@@ -188,31 +188,30 @@ const TestimonialsSection = () => {
                 </div>
               </div>
 
-              {/* Deuxième vidéo */}
+              {/* Deuxième vidéo - Autoplay */}
               <div className="relative">
                 <div className="relative bg-black rounded-2xl overflow-hidden shadow-2xl border border-secondary/30">
                   <div className="relative h-64 sm:h-80 lg:h-96">
-                    {playingVideo === testimonials[1].videoUrl ? (
+                    {allVideosPlaying ? (
                       <video 
                         className="w-full h-full object-cover rounded-2xl"
                         controls
                         autoPlay
                         muted
+                        loop
+                        playsInline
                         src={testimonials[1].videoUrl}
-                        onError={() => setPlayingVideo(null)}
+                        onError={() => console.log('Erreur vidéo 2')}
                       />
                     ) : (
                       <>
                         <div className="w-full h-full bg-gradient-to-br from-purple-800 to-pink-900 flex items-center justify-center">
                           <div className="text-6xl sm:text-8xl">👩🏾‍🏫</div>
                         </div>
-                        <div 
-                          className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm cursor-pointer group"
-                          onClick={() => handleVideoPlay(testimonials[1].videoUrl || '')}
-                        >
+                        <div className="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm">
                           <div className="relative">
-                            <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-secondary rounded-full flex items-center justify-center hover:bg-secondary/90 transition-all duration-300 neon-glow group-hover:scale-110">
-                              <Play className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12 text-black ml-1" />
+                            <div className="w-16 h-16 sm:w-20 sm:h-20 lg:w-24 lg:h-24 bg-secondary rounded-full flex items-center justify-center animate-pulse">
+                              <div className="text-black font-bold text-sm">LOADING</div>
                             </div>
                             <div className="absolute -inset-2 bg-secondary/30 rounded-full animate-ping"></div>
                           </div>
@@ -223,12 +222,18 @@ const TestimonialsSection = () => {
                   
                   {/* Info de la deuxième vidéo */}
                   <div className="p-4 sm:p-6 bg-black/80">
-                    <div className="flex items-center mb-3">
+                    <div className="flex items-center justify-between mb-3">
                       <div className="flex">
                         {[...Array(testimonials[1].rating)].map((_, i) => (
                           <Star key={i} className="h-5 w-5 text-secondary fill-current mr-1" />
                         ))}
                       </div>
+                      {allVideosPlaying && (
+                        <div className="flex items-center bg-red-600/20 border border-red-500 rounded-full px-3 py-1">
+                          <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse mr-2"></div>
+                          <span className="text-red-400 text-xs font-bold">EN DIRECT</span>
+                        </div>
+                      )}
                     </div>
                     <h3 className="font-black text-white text-lg sm:text-xl mb-2">
                       {testimonials[1].name}
@@ -242,6 +247,31 @@ const TestimonialsSection = () => {
                   </div>
                 </div>
               </div>
+            </div>
+
+            {/* Contrôles globaux */}
+            <div className="flex items-center justify-center mt-6">
+              <button
+                onClick={() => setAllVideosPlaying(!allVideosPlaying)}
+                className={`flex items-center px-6 py-3 rounded-full font-bold transition-all duration-300 ${
+                  allVideosPlaying 
+                    ? 'bg-red-600 hover:bg-red-700 text-white' 
+                    : 'bg-primary hover:bg-primary/90 text-black'
+                }`}
+              >
+                {allVideosPlaying ? (
+                  <>
+                    <div className="w-3 h-3 bg-white rounded-sm mr-2"></div>
+                    <div className="w-3 h-3 bg-white rounded-sm mr-3"></div>
+                    PAUSE TOUTES LES VIDÉOS
+                  </>
+                ) : (
+                  <>
+                    <Play className="h-5 w-5 mr-2" />
+                    LANCER TOUTES LES VIDÉOS
+                  </>
+                )}
+              </button>
             </div>
           </div>
         </motion.div>
@@ -338,42 +368,38 @@ const TestimonialsSection = () => {
               onClick={() => setCurrentTestimonial(index)}
               whileHover={{ scale: index === currentTestimonial ? 1.05 : 1.02, y: -5 }}
             >
-              {/* Section média responsive avec meilleure visibilité */}
+              {/* Section média responsive avec autoplay pour les vidéos */}
               {testimonial.type === 'video' && testimonial.videoThumbnail ? (
                 <div className="relative h-40 sm:h-48 lg:h-56 overflow-hidden">
-                  {playingVideo === testimonial.videoUrl ? (
+                  {allVideosPlaying ? (
                     <video 
                       className="w-full h-full object-cover"
                       controls
                       autoPlay
                       muted
+                      loop
+                      playsInline
                       src={testimonial.videoUrl}
-                      onError={() => setPlayingVideo(null)}
+                      onError={() => console.log(`Erreur vidéo ${index + 1}`)}
                     />
                   ) : (
                     <>
                       <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
                         <div className="text-4xl sm:text-5xl lg:text-6xl">🎥</div>
                       </div>
-                      <div 
-                        className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm cursor-pointer group"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          handleVideoPlay(testimonial.videoUrl || '');
-                        }}
-                      >
+                      <div className="absolute inset-0 flex items-center justify-center bg-black/60 backdrop-blur-sm">
                         <div className="relative">
-                          <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-primary rounded-full flex items-center justify-center hover:bg-primary/90 transition-all duration-300 neon-glow group-hover:scale-110">
-                            <Play className="h-7 w-7 sm:h-8 sm:w-8 lg:h-10 lg:w-10 text-black ml-1" />
+                          <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-20 lg:h-20 bg-primary rounded-full flex items-center justify-center animate-pulse">
+                            <div className="text-black font-bold text-xs">LOAD</div>
                           </div>
                           <div className="absolute -inset-2 bg-primary/20 rounded-full animate-ping"></div>
                         </div>
                       </div>
-                      <div className="absolute top-3 left-3 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold">
-                        VIDEO
-                      </div>
                     </>
                   )}
+                  <div className="absolute top-3 left-3 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                    {allVideosPlaying ? '🔴 LIVE' : 'VIDEO'}
+                  </div>
                 </div>
               ) : (
                 <div className="h-40 sm:h-48 lg:h-56 bg-gradient-to-br from-gray-700/50 to-gray-800/50 backdrop-blur-sm flex items-center justify-center">
@@ -398,7 +424,11 @@ const TestimonialsSection = () => {
                   
                   {testimonial.type === 'video' && (
                     <div className="mt-2 sm:mt-0 sm:ml-4">
-                      <div className="bg-red-600/80 text-white p-2 sm:p-3 rounded-full border border-red-500 animate-pulse">
+                      <div className={`text-white p-2 sm:p-3 rounded-full border transition-all duration-300 ${
+                        allVideosPlaying 
+                          ? 'bg-red-600/80 border-red-500 animate-pulse' 
+                          : 'bg-gray-600/80 border-gray-500'
+                      }`}>
                         <Video className="h-4 w-4 sm:h-5 sm:w-5 lg:h-6 lg:w-6" />
                       </div>
                     </div>
