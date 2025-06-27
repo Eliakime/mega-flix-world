@@ -132,7 +132,7 @@ const FaqSection = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center">
               <a 
-                href="https://wa.me/+2210168943491" 
+                href="https://wa.me/+2290168943491" 
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-4 rounded-2xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg text-lg"
               >
                 💬 WhatsApp Support

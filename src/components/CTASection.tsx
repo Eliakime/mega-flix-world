@@ -79,7 +79,7 @@ const CTASection = () => {
                 </div>
 
                 <div className="flex flex-col sm:flex-row gap-4 sm:gap-6">
-                 <a href="https://ywsoqfbs.mychariow.com/prd_3ny4tw" target="_blank" rel="noopener noreferrer">
+                 <a href="https://www.pay.moneyfusion.net/abonnement-chaines-sportives-et-de-divertissement-_1750202328077/" target="_blank" rel="noopener noreferrer">
                   <Button 
                     size="lg"
                     className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-black font-black px-6 sm:px-8 md:px-12 py-4 sm:py-6 md:py-8 text-lg sm:text-xl md:text-2xl rounded-xl sm:rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-2xl neon-glow cinema-font w-full sm:w-auto"
@@ -90,7 +90,7 @@ const CTASection = () => {
                   </Button>
                 </a>
                   
-                <a href="https://ywsoqfbs.mychariow.com/prd_3ny4tw" target="_blank" rel="noopener noreferrer">
+                <a href="https://www.pay.moneyfusion.net/abonnement-chaines-sportives-et-de-divertissement-_1750202328077/" target="_blank" rel="noopener noreferrer">
                   <Button 
                     size="lg"
                     variant="outline"

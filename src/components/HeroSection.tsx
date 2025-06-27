@@ -113,7 +113,7 @@ const HeroSection = () => {
             variant="outline"
             className="w-full sm:w-auto border-2 border-secondary text-secondary hover:bg-secondary hover:text-white px-6 sm:px-8 lg:px-10 py-4 sm:py-5 lg:py-6 text-base sm:text-lg lg:text-xl transition-all duration-300 transform hover:scale-110 rounded-full backdrop-blur-sm"
           >
-            <a href="https://ywsoqfbs.mychariow.com/prd_3ny4tw" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.pay.moneyfusion.net/abonnement-chaines-sportives-et-de-divertissement-_1750202328077/" target="_blank" rel="noopener noreferrer">
               <Download className="mr-2 sm:mr-3 h-4 w-4 sm:h-5 lg:h-6 sm:w-5 lg:w-6" />
               Télécharger l'app
             </a>

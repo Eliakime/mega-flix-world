@@ -263,7 +263,7 @@ const PricingSection = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  <a href="https://ywsoqfbs.mychariow.com/prd_3ny4tw" target="_blank" rel="noopener noreferrer">
+                  <a href="https://www.pay.moneyfusion.net/abonnement-chaines-sportives-et-de-divertissement-_1750202328077/" target="_blank" rel="noopener noreferrer">
   <Button 
     size="lg"
     className="bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-black font-bold px-6 sm:px-12 lg:px-16 py-4 sm:py-6 lg:py-8 text-base sm:text-xl lg:text-2xl rounded-xl sm:rounded-2xl transition-all duration-300 shadow-2xl w-full sm:w-auto"
